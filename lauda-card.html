@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lauda Immobiliare</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+```
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --teal-dark:  #093d36;
+  --teal-mid:   #0f6b5f;
+  --gold:       #c9a84c;
+  --white:      #ffffff;
+}
+
+html, body {
+  height: 100%;
+  background: var(--teal-dark);
+  font-family: 'Montserrat', Georgia, sans-serif;
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 60%),
+    linear-gradient(160deg, #0f6b5f 0%, #093d36 50%, #061e1b 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent, transparent 40px,
+    rgba(201,168,76,0.025) 40px,
+    rgba(201,168,76,0.025) 41px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.card-wrapper > * {
+  animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.card-wrapper > *:nth-child(1) { animation-delay: 0s; }
+.card-wrapper > *:nth-child(2) { animation-delay: 0.1s; }
+.card-wrapper > *:nth-child(3) { animation-delay: 0.2s; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* LOGO */
+#logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.logo-brand {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.logo-sub {
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.48em;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase;
+}
+
+.logo-rule {
+  width: 44px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin-top: 4px;
+}
+
+/* GLASS BOX */
+.glass-box {
+  width: 100%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 22px;
+  padding: 20px 18px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow:
+    0 0 0 1px rgba(201,168,76,0.05) inset,
+    0 8px 32px rgba(0,0,0,0.35);
+}
+
+/* BUTTONS */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50px;
+  color: #ffffff !important;
+  font-family: 'Montserrat', Georgia, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.22s, border-color 0.22s, transform 0.16s, box-shadow 0.22s;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(201,168,76,0.12) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity 0.22s;
+}
+
+.btn:hover::after, .btn:active::after { opacity: 1; }
+
+.btn:hover {
+  border-color: rgba(201,168,76,0.5);
+  background: rgba(201,168,76,0.07);
+  box-shadow: 0 0 18px rgba(201,168,76,0.1);
+  transform: translateY(-1px);
+}
+
+.btn:active { transform: scale(0.97); }
+
+.btn-icon { font-size: 14px; line-height: 1; flex-shrink: 0; }
+
+/* FOOTER */
+.footer {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.22);
+  text-align: center;
+}
+
+.footer span { color: rgba(201,168,76,0.5); font-weight: 600; }
+```
+
+  </style>
+</head>
+<body>
+
+  <div class="card-wrapper">
+
+```
+<div id="logo">
+  <div class="logo-brand">Lauda</div>
+  <div class="logo-sub">Immobiliare</div>
+  <div class="logo-rule"></div>
+</div>
+
+<div class="glass-box">
+
+  <a class="btn" href="https://laudaimmobiliare.com" target="_blank" rel="noopener">
+    <span class="btn-icon">🌐</span>
+    Sito Web
+  </a>
+
+  <a class="btn" href="tel:+393515491453">
+    <span class="btn-icon">📞</span>
+    Contattami
+  </a>
+
+  <a class="btn" href="mailto:filippol2005@icloud.com">
+    <span class="btn-icon">📧</span>
+    Email
+  </a>
+
+  <a class="btn" href="https://instagram.com/laudaimmobiliare" target="_blank" rel="noopener">
+    <span class="btn-icon">📸</span>
+    Instagram
+  </a>
+
+  <a class="btn" href="https://maps.google.com/?q=Via+Etna+84,+Santa+Maria+di+Licodia,+Catania" target="_blank" rel="noopener">
+    <span class="btn-icon">📍</span>
+    Vieni a trovarci!
+  </a>
+
+</div>
+
+<div class="footer">Powered by: <span>@peppvision</span></div>
+```
+
+  </div>
+
+</body>
+</html>
